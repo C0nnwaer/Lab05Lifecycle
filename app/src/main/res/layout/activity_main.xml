@@ -6,13 +6,267 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/midline"
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintGuide_percent=".5" />
+
+    <TextView
+        android:id="@+id/create"
+        android:text="@string/oncreate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/create_run"
+        android:text="@string/run_count_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/midline"
+        app:layout_constraintTop_toBottomOf="@id/create"
+        app:layout_constraintBottom_toTopOf="@id/line_1"/>
+
+    <TextView
+        android:id="@+id/create_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/midline"
+        app:layout_constraintTop_toBottomOf="@id/create"
+        app:layout_constraintBottom_toTopOf="@id/line_1"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".125" />
+
+    <TextView
+        android:id="@+id/start"
+        android:text="@string/onstart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line_1"/>
+
+    <TextView
+        android:id="@+id/start_run"
+        android:text="@string/run_count_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/midline"
+        app:layout_constraintTop_toBottomOf="@id/start"
+        app:layout_constraintBottom_toTopOf="@id/line_2"/>
+
+    <TextView
+        android:id="@+id/start_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/midline"
+        app:layout_constraintTop_toBottomOf="@id/start"
+        app:layout_constraintBottom_toTopOf="@id/line_2"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".25"/>
+
+    <TextView
+        android:id="@+id/resume"
+        android:text="@string/onresume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line_2"/>
+
+    <TextView
+        android:id="@+id/resume_run"
+        android:text="@string/run_count_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/midline"
+        app:layout_constraintTop_toBottomOf="@id/resume"
+        app:layout_constraintBottom_toTopOf="@id/line_3"/>
+
+    <TextView
+        android:id="@+id/resume_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/midline"
+        app:layout_constraintTop_toBottomOf="@id/resume"
+        app:layout_constraintBottom_toTopOf="@id/line_3"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".375"/>
+
+    <TextView
+        android:id="@+id/pause"
+        android:text="@string/onpause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line_3"/>
+
+    <TextView
+        android:id="@+id/pause_run"
+        android:text="@string/run_count_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/midline"
+        app:layout_constraintTop_toBottomOf="@id/pause"
+        app:layout_constraintBottom_toTopOf="@id/line_4"/>
+
+    <TextView
+        android:id="@+id/pause_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/midline"
+        app:layout_constraintTop_toBottomOf="@id/pause"
+        app:layout_constraintBottom_toTopOf="@id/line_4"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".5"/>
+
+    <TextView
+        android:id="@+id/stop"
+        android:text="@string/onstop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line_4"/>
+
+    <TextView
+        android:id="@+id/stop_run"
+        android:text="@string/run_count_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/midline"
+        app:layout_constraintTop_toBottomOf="@id/stop"
+        app:layout_constraintBottom_toTopOf="@id/line_5"/>
+
+    <TextView
+        android:id="@+id/stop_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/midline"
+        app:layout_constraintTop_toBottomOf="@id/stop"
+        app:layout_constraintBottom_toTopOf="@id/line_5"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".625"/>
+
+    <TextView
+        android:id="@+id/restart"
+        android:text="@string/onrestart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line_5"/>
+
+    <TextView
+        android:id="@+id/restart_run"
+        android:text="@string/run_count_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/midline"
+        app:layout_constraintTop_toBottomOf="@id/restart"
+        app:layout_constraintBottom_toTopOf="@id/line_6"/>
+
+    <TextView
+        android:id="@+id/restart_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/midline"
+        app:layout_constraintTop_toBottomOf="@id/restart"
+        app:layout_constraintBottom_toTopOf="@id/line_6"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".75"/>
+
+    <TextView
+        android:id="@+id/destroy"
+        android:text="@string/ondestroy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line_6"/>
+
+    <TextView
+        android:id="@+id/destroy_run"
+        android:text="@string/run_count_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/midline"
+        app:layout_constraintTop_toBottomOf="@id/destroy"
+        app:layout_constraintBottom_toTopOf="@id/line_7"/>
+
+    <TextView
+        android:id="@+id/destroy_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/midline"
+        app:layout_constraintTop_toBottomOf="@id/destroy"
+        app:layout_constraintBottom_toTopOf="@id/line_7"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".875"/>
+
+    <Button
+        android:id="@+id/button"
+        android:text="@string/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/line_7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
