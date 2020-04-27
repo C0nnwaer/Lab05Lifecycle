@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.content.SharedPreferences;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     int total_destroy;
     TextView destroy_total;
 
+    Button reset_button;
+
     SharedPreferences myPreferences;
     SharedPreferences.Editor prefsEditor;
 
@@ -47,47 +51,128 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        create_run = findViewById(R.id.create_run);
-        create_total = findViewById(R.id.create_total);
-        create_total.setText("total count: " + total_create);
-        resume_run = findViewById(R.id.resume_run);
-        resume_total = findViewById(R.id.resume_total);
-        resume_total.setText("total count: " + total_resume);
-        pause_run = findViewById(R.id.pause_run);
-        pause_total = findViewById(R.id.pause_total);
-        pause_total.setText("total count: " + total_pause);
-        stop_run = findViewById(R.id.stop_run);
-        stop_total = findViewById(R.id.stop_total);
-        stop_total.setText("total count: " + total_stop);
-        restart_run = findViewById(R.id.restart_run);
-        restart_total = findViewById(R.id.restart_total);
-        restart_total.setText("total count: " + total_restart);
-        start_run = findViewById(R.id.start_run);
-        start_total = findViewById(R.id.start_total);
-        start_total.setText("total count: " + total_start);
-        destroy_run = findViewById(R.id.destroy_run);
-        destroy_total = findViewById(R.id.destroy_total);
-        destroy_total.setText("total count: " + total_destroy);
-
         myPreferences = getSharedPreferences("com.chungbella.lab05_lifecycle.sharedprefs",
                 MODE_PRIVATE);
         prefsEditor = myPreferences.edit();
 
-        create += 1;
-        create_run.setText("run count: " + create);
-        Log.i("create", "" + create);
+        reset_button = findViewById(R.id.button);
+        reset_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int create = 0;
+                prefsEditor.putInt("create", 0);
+                int start = 0;
+                prefsEditor.putInt("start", 0);
+                int resume = 0;
+                prefsEditor.putInt("resume", 0);
+                int pause = 0;
+                prefsEditor.putInt("pause", 0);
+                int stop = 0;
+                prefsEditor.putInt("stop", 0);
+                int restart = 0;
+                prefsEditor.putInt("restart", 0);
+                int destroy = 0;
+                prefsEditor.putInt("destroy", 0);
+                prefsEditor.apply();
+
+                create_run.setText("run count: " + create);
+                create_total.setText("total count: " + 0);
+
+                resume_run.setText("run count: " + resume);
+                resume_total.setText("total count: " + 0);
+
+                pause_run.setText("run count: " + pause);
+                pause_total.setText("total count: " + 0);
+
+                stop_run.setText("run count: " + stop);
+                stop_total.setText("total count: " + 0);
+
+                restart_run.setText("run count: " + restart);
+                restart_total.setText("total count: " + 0);
+
+                start_run.setText("run count: " + start);
+                start_total.setText("total count: " + 0);
+
+                destroy_run.setText("run count: " + destroy);
+                destroy_total.setText("total count: " + 0);
+
+            }
+        });
 
         if(!myPreferences.contains("create")){
             prefsEditor.putInt("create", 0);
         }
-        prefsEditor.apply();
-
         total_create = myPreferences.getInt("create", -1);
         prefsEditor.putInt("create", total_create + 1);
+
+        if(!myPreferences.contains("start")){
+            prefsEditor.putInt("start", 0);
+        }
+        total_start = myPreferences.getInt("start", -1);
+
+        if(!myPreferences.contains("resume")){
+            prefsEditor.putInt("resume", 0);
+        }
+        total_resume = myPreferences.getInt("resume", -1);
+
+        if(!myPreferences.contains("pause")){
+            prefsEditor.putInt("pause", 0);
+        }
+        total_pause = myPreferences.getInt("pause", -1);
+
+        if(!myPreferences.contains("stop")){
+            prefsEditor.putInt("stop", 0);
+        }
+        total_stop = myPreferences.getInt("stop", -1);
+
+        if(!myPreferences.contains("restart")){
+            prefsEditor.putInt("restart", 0);
+        }
+        total_restart = myPreferences.getInt("restart", -1);
+
+        if(!myPreferences.contains("destroy")){
+            prefsEditor.putInt("destroy", 0);
+        }
+        total_destroy = myPreferences.getInt("destroy", -1);
+
         prefsEditor.apply();
 
+        create_run = findViewById(R.id.create_run);
+        create += 1;
+        create_run.setText("run count: " + create);
+        create_total = findViewById(R.id.create_total);
         create_total.setText("total count: " + total_create);
-        Log.i("total_create", "" + total_create);
+
+        resume_run = findViewById(R.id.resume_run);
+        resume_run.setText("run count: " + resume);
+        resume_total = findViewById(R.id.resume_total);
+        resume_total.setText("total count: " + total_resume);
+
+        pause_run = findViewById(R.id.pause_run);
+        pause_run.setText("run count: " + pause);
+        pause_total = findViewById(R.id.pause_total);
+        pause_total.setText("total count: " + total_pause);
+
+        stop_run = findViewById(R.id.stop_run);
+        stop_run.setText("run count: " + stop);
+        stop_total = findViewById(R.id.stop_total);
+        stop_total.setText("total count: " + total_stop);
+
+        restart_run = findViewById(R.id.restart_run);
+        restart_run.setText("run count: " + restart);
+        restart_total = findViewById(R.id.restart_total);
+        restart_total.setText("total count: " + total_restart);
+
+        start_run = findViewById(R.id.start_run);
+        start_run.setText("run count: " + start);
+        start_total = findViewById(R.id.start_total);
+        start_total.setText("total count: " + total_start);
+
+        destroy_run = findViewById(R.id.destroy_run);
+        destroy_run.setText("run count: " + destroy);
+        destroy_total = findViewById(R.id.destroy_total);
+        destroy_total.setText("total count: " + total_destroy);
+
     }
 
     @Override
@@ -96,11 +181,6 @@ public class MainActivity extends AppCompatActivity {
         start += 1;
         start_run.setText("run count: " + start);
         Log.i("start", "" + start);
-
-        if(!myPreferences.contains("start")){
-            prefsEditor.putInt("start", 0);
-        }
-        prefsEditor.apply();
 
         total_start = myPreferences.getInt("start", -1);
         prefsEditor.putInt("start", total_start + 1);
@@ -117,11 +197,6 @@ public class MainActivity extends AppCompatActivity {
         resume_run.setText("run count: " + resume);
         Log.i("resume", "" + resume);
 
-        if(!myPreferences.contains("resume")){
-            prefsEditor.putInt("resume", 0);
-        }
-        prefsEditor.apply();
-
         total_resume = myPreferences.getInt("resume", -1);
         prefsEditor.putInt("resume", total_resume + 1);
         prefsEditor.apply();
@@ -136,11 +211,6 @@ public class MainActivity extends AppCompatActivity {
         pause += 1;
         pause_run.setText("run count: " + pause);
         Log.i("pause", "" + pause);
-
-        if(!myPreferences.contains("pause")){
-            prefsEditor.putInt("pause", 0);
-        }
-        prefsEditor.apply();
 
         total_pause = myPreferences.getInt("pause", -1);
         prefsEditor.putInt("pause", total_pause + 1);
@@ -157,11 +227,6 @@ public class MainActivity extends AppCompatActivity {
         stop_run.setText("run count: " + stop);
         Log.i("stop", "" + stop);
 
-        if(!myPreferences.contains("stop")){
-            prefsEditor.putInt("stop", 0);
-        }
-        prefsEditor.apply();
-
         total_stop = myPreferences.getInt("stop", -1);
         prefsEditor.putInt("stop", total_stop + 1);
         prefsEditor.apply();
@@ -177,11 +242,6 @@ public class MainActivity extends AppCompatActivity {
         restart_run.setText("run count: " + restart);
         Log.i("restart", "" + restart);
 
-        if(!myPreferences.contains("restart")){
-            prefsEditor.putInt("restart", 0);
-        }
-        prefsEditor.apply();
-
         total_restart = myPreferences.getInt("restart", -1);
         prefsEditor.putInt("restart", total_restart + 1);
         prefsEditor.apply();
@@ -192,15 +252,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         destroy += 1;
         destroy_run.setText("run count: " + destroy);
         Log.i("destroy", "" + destroy);
-
-        if(!myPreferences.contains("destroy")){
-            prefsEditor.putInt("destroy", 0);
-        }
-        prefsEditor.apply();
 
         total_destroy = myPreferences.getInt("destroy", -1);
         prefsEditor.putInt("destroy", total_destroy + 1);
@@ -208,5 +262,7 @@ public class MainActivity extends AppCompatActivity {
 
         destroy_total.setText("total count: " + total_destroy);
         Log.i("total_destroy", "" + total_destroy);
+
+        super.onDestroy();
     }
 }
